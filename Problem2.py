@@ -49,5 +49,3 @@ def main():
         
         else:
             print("Invalid choice. Please choose a valid option.")
-
-main()
