@@ -57,9 +57,7 @@ Process Based on Choice:
 - If the user chooses "Exit": Break the loop and terminate the program.
 - If the user inputs an invalid choice, display an error message. Loop back to the start of the menu.
 - Exit the application loop when the user chooses to exit.
-Example
-System exits the application.
-This pseudo code outlines the flow and logic of the URL shortener application without diving into specific programming syntax, making it easier to translate into any programming language.
+
 
 Test cases:
 1.
