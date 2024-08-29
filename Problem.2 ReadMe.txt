@@ -1,0 +1,97 @@
+Problem.2 - Create a console based url shortener. At times, the URL is long and a user might be constrained by the application to use such long urls (SMSes are still 160 characters long)
+
+For example, below is the url for Knowledge city.
+
+https://www.google.com/maps/place/KnowledgeCity/@33.1234724,-117.2917265,17z/data=!3m2!4b1!5s0x80dc736a91558e07:0x46aaac3af5e1b93b!4m6!3m5!1s0x80dc737badf6a749:0xd9de8493142f1f78!8m2!3d33.1234679!4d-117.2891516!16s%2Fg%2F11b7b3k86l?entry=ttu
+
+Once, fed to URL shortner, the url could be - https://short.url/aedf
+
+Solution - 
+
+Pre Requisite - Download python interpreter or download Anaconda so that you can code python script in Spyder.
+
+Steps to Use:
+- Open Problem2.py in python interpreter and run the code.
+- It will give 3 options to select "Generate Short URL", "Navigate to Original URL", "Exit".
+- If you need to generate short URL select generate short url and it will ask for orginal URL after you input orginal url it will give shot url as output.
+- If you select Navigate to original url it will ask for short url, if you input the short url it will open the original url if the give short url matches or it give a error message.
+- Click on Exit to come out of the loop.
+
+
+
+Pseudo Code
+
+-Initialize Data Structures:
+-url_mapping: A dictionary to store the mapping between short URLs and original URLs.
+
+Function: Generate Short URL
+Input: original_url (the long URL to be shortened)
+Process:
+-Generate a random string of 5 characters (composed of letters and digits).
+-Concatenate the random string with the base short URL (e.g., "https://short.url/").
+-Store the mapping of the short URL to the original URL in the url_mapping dictionary.
+Output: Return the generated short URL.
+
+Function: Navigate to Original URL
+Input: short_url (the shortened URL to be expanded and navigated to)
+Process:
+-Check if the short_url exists in the url_mapping dictionary.
+-If found, retrieve the original URL associated with the short_url.
+-Open the original URL in the web browser.
+-If not found, print short URL was not found.
+Output: None (Performs an action by opening the URL in a browser)
+
+Main Function
+Process:
+Start an loop to keep the application running.
+Display the menu:
+Option 1: Generate Short URL
+Option 2: Navigate to Original URL
+Option 3: Exit
+Input: Read the user’s choice.
+
+Example:
+Process Based on Choice:
+- If the user chooses "Generate Short URL": Ask for the original URL. Call the Generate Short URL function, Display the resulting short   URL.
+- If the user chooses "Navigate to Original URL": Ask for the short URL. Call the Navigate to Original URL function.
+- If the user chooses "Exit": Break the loop and terminate the program.
+- If the user inputs an invalid choice, display an error message. Loop back to the start of the menu.
+- Exit the application loop when the user chooses to exit.
+Example
+System exits the application.
+This pseudo code outlines the flow and logic of the URL shortener application without diving into specific programming syntax, making it easier to translate into any programming language.
+
+Test cases:
+1.
+Input:
+ --- URL Shortener ---
+1. Generate Short URL
+2. Navigate to Original URL
+3. Exit
+Choose an option (1/2/3): 1
+Enter the original URL: https://www.google.com/maps/place/KnowledgeCity/@33.1234724,-117.2917265,17z/data=!3m2!4b1!5s0x80dc736a91558e07:0x46aaac3af5e1b93b!4m6!3m5!1s0x80dc737badf6a749:0xd9de8493142f1f78!8m2!3d33.1234679!4d-117.2891516!16s%2Fg%2F11b7b3k86l?entry=ttu
+Output:
+Short URL: https://short.url/apeP6
+
+2. 
+Input:
+--- URL Shortener ---
+1. Generate Short URL
+2. Navigate to Original URL
+3. Exit
+Choose an option (1/2/3): 2
+Enter the short URL: https://short.url/apeP6
+Output:
+Navigating to https://www.google.com/maps/place/KnowledgeCity/@33.1234724,-117.2917265,17z/data=!3m2!4b1!5s0x80dc736a91558e07:0x46aaac3af5e1b93b!4m6!3m5!1s0x80dc737badf6a749:0xd9de8493142f1f78!8m2!3d33.1234679!4d-117.2891516!16s%2Fg%2F11b7b3k86l?entry=ttu
+
+3. If short URL given is not in directory
+Input:
+--- URL Shortener ---
+1. Generate Short URL
+2. Navigate to Original URL
+3. Exit
+Choose an option (1/2/3): 2
+Enter the short URL: https://short.url/apedf
+Short URL not found in the system.
+ 
+Improvement: While taking original URL it doesn't verify the URL is a working URL. This can be written using rest API 

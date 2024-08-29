@@ -1,0 +1,85 @@
+Problem.1 - During application migration from one server to another server folders are copied. However the folder copy process failed.
+There are two options,
+
+1. Restart the folder copy process from beginning
+2. Write a small utility that will create folders that were missed during folder migration.
+
+Solution - 
+
+Pre Requisite - Download python interpreter or download Anaconda so that you can code python script in Spyder.
+
+Steps to Use:
+- Create 2 Directories with different folder depth in CLI.
+- Now open the attached problem1.py file in Spyder or any python interpreter.
+- Inside problem1.py specify the path of the server/directory which you want to replicate at "source_server_path".
+- Also specify the destination server/directory where you want the folders to be replicated at "destination_server_path".
+- Now Run the script, and it will create any missing folders in the destination directory.
+
+
+
+Pseudo Code
+
+Initialize Data Structures:
+ -source_folders: to store the paths of all folders in the source directory.
+ -destination_folders: to store the paths of all folders in the destination directory.
+ -missing_folders: to store the paths of folders that are in the source but not in the destination.
+
+Function: Get All Folders
+Input: root_dir (the directory from which to collect all folder paths)
+Process:
+-Initialize an empty set called folder_set.
+-Traverse the directory structure starting from root_dir:
+-Return the folder_set.
+Output: A set containing all relative folder paths under root_dir.
+
+Function: Create Missing Folders
+Input: source_root (the root directory of the source), dest_root (the root directory of the destination)
+Process:
+- Call Get All Folders function with source_root as input and store the result in source_folders.
+- Call Get All Folders function with dest_root as input and store the result in destination_folders.
+- Compute missing_folders as the difference between source_folders and destination_folders.
+- If missing_folders is empty:
+    -Print a message indicating that no folders are missing.
+- Otherwise:
+    -For each folder in missing_folders:
+    -Construct the full path of the folder in the destination directory by combining dest_root and the relative folder path.
+    -Create the folder.
+-Print a message that the folder is created.
+-Print the total number of folders created.
+
+Main Function
+Call Create Missing Folders function with the source and destination paths as inputs.
+
+
+Example:
+
+Input:
+Source directory: /path/to/source
+Destination directory: /path/to/destination
+
+Get All Folders:
+Traverse /path/to/source to find all folders and subfolders.
+Traverse /path/to/destination to find all folders and subfolders.
+
+Compare Folders:
+Determine which folders in the source directory are missing in the destination directory.
+Create Missing Folders:
+For each missing folder, create it in the destination directory.
+
+Output:
+Print which folders were created or indicate if no folders were missing.
+
+Test cases:
+1. Input: Source - source/folder1/folder2
+	  Destination - destination/folder1/folder2
+   Output: All folders are present. No missing folders.
+2. Input: Source - source/folder1/folder2/subfolder
+          Destination - destination/folder1
+   Output: 
+	  destination/folder1/folder2/subfolder	
+ 
+
+
+
+
+
